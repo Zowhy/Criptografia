@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criptografia com CryptoJS</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+  <h1>Exemplo de Criptografia com CryptoJS</h1>
+
+  <script>
+    // Texto que será criptografado
+    const textoOriginal = "Este é um texto secreto";
+
+    // Chave secreta para criptografia
+    const chaveSecreta = "minha_chave_super_secreta";
+
+    // Criptografando o texto
+    const textoCriptografado = CryptoJS.AES.encrypt(textoOriginal, chaveSecreta).toString();
+    console.log("Texto Criptografado:", textoCriptografado);
+
+    // Descriptografando o texto
+    const bytes = CryptoJS.AES.decrypt(textoCriptografado, chaveSecreta);
+    const textoDescriptografado = bytes.toString(CryptoJS.enc.Utf8);
+    console.log("Texto Descriptografado:", textoDescriptografado);
+  </script>
+</body>
+</html>
